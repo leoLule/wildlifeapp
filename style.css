@@ -1,8 +1,35 @@
 * {
     padding: 0;
     margin: 0;
+    font-size: 18px;
 }
 
 .main-warapper {
     display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.title {
+    width: 150px;
+}
+
+input {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    flex: 0.4;
+
+}
+
+
+
+.slot {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+#picButton {
+    width: 100px;
 }
