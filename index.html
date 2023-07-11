@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>wildlife</title>
   <link rel="stylesheet" href="style.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="main-wrapper">
+    <h1>Add Experience</h1>
     <div class="slot">
       <div class="title">Your Experience:</div>
       <input>
@@ -25,13 +28,23 @@
       <button id="picButton">Add Picture</button>
     </div>
     <div class="slot">
-      <textarea class="commentbox" rows="5" name="comment" id="comment" required="">
+      <div class="title">Notes:</div>
+
+      <textarea class="commentbox" rows="6" id="comment">
           </textarea>
     </div>
+    <div class="slot">
 
-    <button>Submit</button>
+      <button id="submit" class="title">Submit</button>
+
+    </div>
     <div id="locationInput"></div>
+
+    <button id="gallery-button"> Gallery</button>
+
+
   </div>
+
   <script src="index.js"></script>
 
 

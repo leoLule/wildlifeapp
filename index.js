@@ -1,21 +1,17 @@
 function getLocation() {
-    var locationInput = document.getElementById("locationInput");
+    let locationInput = document.getElementById("locationInput");
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
+            locationInput.value = latitude + ", " + longitude;
+        },
+        function (error) {
+            console.error("Error retrieving location:", error);
+        }
+    );
 
-                locationInput.value = latitude + ", " + longitude;
-            },
-            function (error) {
-                console.error("Error retrieving location:", error);
-            }
-        );
-    } else {
-        console.error("Geolocation is not supported by this browser.");
-    }
 }
 
 getLocation();
