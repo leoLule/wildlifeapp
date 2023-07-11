@@ -1,3 +1,8 @@
+//TODO: when click on button add picture add picture to gallery
+//- save in local storages, how to remove/edit pic?
+//- add description of observations:what shall it contain ?
+//- maybe as a card design with a small pic on top and a short description below and if i click on the description you can edit the card
+
 // Get references to the gallery container and images
 const galleryContainer = document.getElementById("gallery");
 const images = galleryContainer.getElementsByTagName("img");
