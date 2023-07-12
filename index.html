@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>wildlife</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div class="main-wrapper">
-      <h1>What did you find?</h1>
-      <div class="input-wrapper">
-        <div class="slot">
-          <div class="title">Your Experience:</div>
-          <input class="base-input" />
-        </div>
-        <div class="slot">
-          <div class="title">Location:</div>
-          <input class="base-input" />
-        </div>
-        <div class="slot">
-          <div class="title">Flora & Fauna:</div>
-          <input class="base-input" />
-          <button class="picButton">Add Picture</button>
-        </div>
-        <button>Submit</button>
-      </div>
-      <!-- 
-      -------Gallery---------- -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wildlife</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <h1>Add Experience</h1>
+    <div class="slot">
+      <div class="title">Your Experience:</div>
+      <input>
+    </div>
+    <div class="slot">
+      <div class="title">Location:</div>
+      <input id="locationInput">
+    </div>
+    <div class="slot">
+      <div class="title">Flora & Fauna:</div>
+      <input>
+      <button id="picButton">Add Picture</button>
+    </div>
+    <div class="slot">
+      <div class="title">Notes:</div>
+
+      <textarea class="commentbox" rows="6" id="comment">
+          </textarea>
+    </div>
+    <div class="slot">
+
+      <button id="submit" class="title">Submit</button>
+
+    </div>
+    <div id="locationInput"></div>
+    <h1>Gallery</h1>
+
+    <div id="gallery">
+      <img src="./pics/Coral-red-mushroom.jpg" alt="Coral-red-mushroom" />
+      <img src="./pics/hairy-frogfish-angle_3x2.avif" alt="hairy-frogfish-angle" />
+      <img src="./pics/orchid--tiare-lovely-smile.jpg" alt="orchid" />
+      <img src="./pics/blue bird.jpeg" alt="blue bird" />
+    </div>
+
+  </div>
+
+  <script src="index.js"></script>
+
+
+</body>
 
       <div id="gallery">
         <img src="./pics/Coral-red-mushroom.jpg" alt="Coral-red-mushroom" />

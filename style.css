@@ -1,53 +1,66 @@
 * {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /* font-size: 18px; lets not put the same font size on all items */
+  font-size: 18px;
+  font-family: "Shadows Into Light", cursive;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: green;
 }
 
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  /* flex: 1; */
-  align-items: center;
+  height: 100%;
+  flex: 1;
 }
 
-/* .title {
-  width: 150px;
-} */
-
-/* input {
-  /* display: flex;
-  /* padding: 0;
-  margin: 0; not need bc already in'*' */
-/* flex: 0.4; } */
+h1 {
+  font-size: 50px;
+  align-self: center;
+  color: rgb(118, 249, 118);
+}
 
 .slot {
   display: flex;
-  flex-direction: row;
-  /* flex: 1; */
+  padding: 5px;
 }
 
-.picButton {
-  width: 100px;
-  /* padding: 3px; why does it change also the input field of "flora and fauna"  */
+.title {
+  width: 150px;
 }
 
-.input-wrapper {
+input {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* height: auto;  not sure yet need to think about height*/
+  padding: 0;
+  margin: 0;
+  flex: 0.4;
 }
-h1 {
-  margin: 2rem;
+
+button {
+  border-radius: 10px;
+  padding: 10px;
 }
-.base-input,
-.picButton {
-  margin-right: 1rem;
-  margin-left: 0.2rem;
+
+#picButton {
+  width: 100px;
+  margin-left: 10px;
 }
-/* -------Gallery----------  */
+
+.commentbox {
+  display: flex;
+  flex: 0.4;
+}
+
+#submit {
+  margin: 0 150px;
+  width: 150px;
+}
+
 #gallery {
   display: flex;
   flex-wrap: wrap;
