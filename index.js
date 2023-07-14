@@ -49,3 +49,9 @@ function displayImage(index) {
     modal.remove();
   });
 }
+
+//select html divs/inputs
+const grabSubmit = document.querySelector("#submit-btn");
+const grabFlora = document.querySelector("#flora-input");
+const grabLocation = document.querySelector("#locationInput");
+const grabNotes = document.querySelector("#comment");
