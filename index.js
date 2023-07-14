@@ -20,11 +20,14 @@ function getLocation() {
   );
 }
 
-const apiKey = "AIzaSyBl-lr2Ba9AGX5fBY3eXCTfHg3H8uwNds4";
+const apiKey = "";
 function getLocationName(latitude, longitude) {
   let apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
   fetch(apiUrl)
-    .then(response => response.json())
+    .then((response) => {
+      response.json();
+      console.log(response)
+    })
     .then((data) => {
 
       let locationName = data.results[0].formatted_address;
