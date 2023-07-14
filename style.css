@@ -16,11 +16,12 @@ body {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; do not use so it wont be so stretched out @amit*/
   flex: 1;
 }
 
-h1 {
+h1,
+h2 {
   font-size: 50px;
   text-align: center;
   color: rgb(118, 249, 118);
@@ -31,14 +32,13 @@ h1 {
   padding: 5px;
   flex: 1;
   justify-content: center;
-
+  align-items: flex-start;
 }
 
 .slot-with-button {
   display: flex;
   justify-content: center;
   margin-left: 50px;
-
 }
 
 .title {
@@ -46,7 +46,6 @@ h1 {
 }
 
 input {
-
   flex: 0.4;
 }
 
@@ -74,6 +73,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: row;
 }
 
 #gallery img {
@@ -119,4 +119,10 @@ button {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+}
+
+.output-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
