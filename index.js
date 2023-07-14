@@ -64,14 +64,14 @@ function flora() {
 }
 function addFile() {
   // Get the selected files
-  var selectedFiles = picButton.files;
+  const selectedFiles = picButton.files;
 
   // Iterate over each selected file
-  for (var i = 0; i < selectedFiles.length; i++) {
-    var file = selectedFiles[i];
+  for (let i = 0; i < selectedFiles.length; i++) {
+    const file = selectedFiles[i];
 
     // Create an image element
-    var img = document.createElement("img");
+    const img = document.createElement("img");
     img.src = URL.createObjectURL(file);
     img.alt = file.name;
 
