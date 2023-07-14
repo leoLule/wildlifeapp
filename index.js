@@ -55,3 +55,14 @@ const grabSubmit = document.querySelector("#submit-btn");
 const grabFlora = document.querySelector("#flora-input");
 const grabLocation = document.querySelector("#locationInput");
 const grabNotes = document.querySelector("#comment");
+const output = document.getElementById("output");
+
+function flora() {
+  const flora = grabFlora.value;
+  output.textContent = flora;
+}
+//on submit/click
+grabSubmit.addEventListener("click", function () {
+  console.log("test");
+  flora();
+});
