@@ -20,6 +20,7 @@ function getLocation() {
 }
 
 getLocation();
+
 const galleryContainer = document.getElementById("gallery");
 const images = galleryContainer.getElementsByTagName("img");
 
@@ -61,8 +62,27 @@ function flora() {
   const flora = grabFlora.value;
   output.textContent = flora;
 }
+function addFile() {
+  // Get the selected files
+  const selectedFiles = picButton.files;
+
+  // Iterate over each selected file
+  for (let i = 0; i < selectedFiles.length; i++) {
+    const file = selectedFiles[i];
+
+    // Create an image element
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.alt = file.name;
+
+    // Append the image element to the gallery container
+    gallery.appendChild(img);
+  }
+}
 //on submit/click
 grabSubmit.addEventListener("click", function () {
   console.log("test");
+  addFile();
   flora();
+  // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
