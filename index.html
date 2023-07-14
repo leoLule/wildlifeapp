@@ -15,34 +15,39 @@
   <div class="main-wrapper">
     <h1>Add Experience</h1>
     <div class="slot">
-      <div class="title">Your Experience:</div>
-      <input>
+      <div  class="title">Flora or Fauna:</div>
+      <input id="flora-input">
     </div>
+    <div class="slot">
+      <div class="title "></div> 
+<!-- the div above represented a placeholder to help to positioning the "picButton" button ,Amit? -->
+      <input type="file" id="picButton"></input>
+
+    </div>
+
     <div class="slot">
       <div class="title">Location:</div>
       <input id="locationInput">
     </div>
-    <div class="slot-with-button">
-      <div class="title">Flora & Fauna:</div>
-      <input>
-      <button id="picButton">Add Picture</button>
-    </div>
+
     <div class="slot">
       <div class="title">Notes:</div>
 
-      <textarea class="commentbox" rows="6" id="comment">
+      <textarea class="commentbox" rows="3" id="comment">
           </textarea>
     </div>
     <div class="slot">
 
-      <button id="submit" class="title">Submit</button>
+      <button id="submit-btn" class="title">Submit</button>
 
     </div>
-    <div id="locationInput"></div>
+    <!-- <div id="locationInput"></div> -->
+    <!-- what does this div do? it also usesed the 2nd time id="locationInput", Amit? -->
     <h1>Gallery</h1>
 
     <div id="gallery">
       <img src="./pics/Coral-red-mushroom.jpg" alt="Coral-red-mushroom" />
+      <div id="output"></div>
       <img src="./pics/hairy-frogfish-angle_3x2.avif" alt="hairy-frogfish-angle" />
       <img src="./pics/orchid--tiare-lovely-smile.jpg" alt="orchid" />
       <img src="./pics/blue bird.jpeg" alt="blue bird" />
@@ -53,6 +58,6 @@
   <script src="index.js"></script>
 
 
-</body>
 
+  </body>
 </html>
