@@ -122,7 +122,21 @@ button {
 }
 
 .output-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#output {
+  display: flex;
+}
+.myDiv {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
 }
