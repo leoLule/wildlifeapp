@@ -60,9 +60,10 @@ const output = document.getElementById("output");
 
 function flora() {
   const flora = grabFlora.value;
-  var divElement = document.createElement("div");
+  const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = flora;
+  localStorage.setItem("floraText", flora);
 
   // Append the element to the body
   output.appendChild(divElement);
