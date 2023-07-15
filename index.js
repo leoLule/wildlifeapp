@@ -81,7 +81,13 @@ const output = document.getElementById("output");
 
 function flora() {
   const flora = grabFlora.value;
-  output.textContent = flora;
+  var divElement = document.createElement("div");
+  divElement.className = "myDiv";
+  divElement.innerHTML = flora;
+
+  // Append the element to the body
+  output.appendChild(divElement);
+  // output.textContent += flora;
 }
 function addFile() {
   // Get the selected files
