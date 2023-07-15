@@ -12,11 +12,29 @@ function getLocation() {
       let longitude = position.coords.longitude;
 
       locationInput.value = latitude + ", " + longitude;
+      getLocationName(latitude, longitude);
     },
     function (error) {
       console.error("Error retrieving location:", error);
     }
   );
+}
+
+const apiKey = "";
+function getLocationName(latitude, longitude) {
+  let apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+
+      let locationName = data.results[0].formatted_address;
+      console.log(locationName);
+      locationInput.value = locationName;
+
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
 }
 
 getLocation();
