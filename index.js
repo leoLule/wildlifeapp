@@ -20,20 +20,18 @@ function getLocation() {
   );
 }
 
-const apiKey = "";
+const apiKey = "AIzaSyBl-lr2Ba9AGX5fBY3eXCTfHg3H8uwNds4";
 function getLocationName(latitude, longitude) {
   let apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
-
       let locationName = data.results[0].formatted_address;
       console.log(locationName);
       locationInput.value = locationName;
-
     })
-    .catch(error => {
-      console.log('Error:', error);
+    .catch((error) => {
+      console.log("Error:", error);
     });
 }
 
@@ -75,17 +73,32 @@ const grabFlora = document.querySelector("#flora-input");
 const grabLocation = document.querySelector("#locationInput");
 const grabNotes = document.querySelector("#comment");
 const output = document.getElementById("output");
+const outputLocation = document.getElementById("output-location");
 
-function flora() {
+function addFlora() {
   const flora = grabFlora.value;
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = flora;
-  localStorage.setItem("floraText", flora);
+  // localStorage.setItem("floraText", flora);
 
   // Append the element to the body
   output.appendChild(divElement);
   // output.textContent += flora;
+}
+function addNote() {
+  const note = grabNotes.value;
+  const divElement = document.createElement("div");
+  divElement.className = "myDiv";
+  divElement.innerHTML = note;
+  output.appendChild(divElement);
+}
+function addLocation() {
+  const location = grabLocation.value;
+  const divElement = document.createElement("div");
+  divElement.className = "myDiv";
+  divElement.innerHTML = location;
+  outputLocation.appendChild(divElement);
 }
 function addFile() {
   // Get the selected files
@@ -108,6 +121,8 @@ function addFile() {
 grabSubmit.addEventListener("click", function () {
   console.log("test");
   addFile();
-  flora();
+  addFlora();
+  addLocation();
+  // addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
