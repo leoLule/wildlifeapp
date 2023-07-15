@@ -133,16 +133,14 @@ button {
   align-items: center;
 }
 
-#output {
-  display: flex;
-  flex-direction: row;
-}
-#output-location {
+#output,
+#output-location,
+#output-note {
   display: flex;
   flex-direction: row;
 }
 .myDiv {
   width: 200px;
-  height: 20px;
+  height: auto;
   margin: 10px;
 }

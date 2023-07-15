@@ -74,6 +74,7 @@ const grabLocation = document.querySelector("#locationInput");
 const grabNotes = document.querySelector("#comment");
 const output = document.getElementById("output");
 const outputLocation = document.getElementById("output-location");
+const outputNote = document.getElementById("output-note");
 
 function addFlora() {
   const flora = grabFlora.value;
@@ -91,7 +92,7 @@ function addNote() {
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = note;
-  output.appendChild(divElement);
+  outputNote.appendChild(divElement);
 }
 function addLocation() {
   const location = grabLocation.value;
@@ -123,6 +124,6 @@ grabSubmit.addEventListener("click", function () {
   addFile();
   addFlora();
   addLocation();
-  // addNote();
+  addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
