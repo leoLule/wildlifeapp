@@ -24,10 +24,7 @@ const apiKey = "";
 function getLocationName(latitude, longitude) {
   let apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
   fetch(apiUrl)
-    .then((response) => {
-      response.json();
-      console.log(response)
-    })
+    .then((response) => response.json())
     .then((data) => {
 
       let locationName = data.results[0].formatted_address;
