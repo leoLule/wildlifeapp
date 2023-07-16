@@ -77,15 +77,27 @@ const outputLocation = document.getElementById("output-location");
 const outputNote = document.getElementById("output-note");
 
 function addFlora() {
+  let data = localStorage.getItem("savedData");
+  if (data === null) {
+    data = [];
+  } else {
+    data = JSON.parse(data);
+  }
+
   const flora = grabFlora.value;
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = flora;
-  // localStorage.setItem("floraText", flora);
+  console.log("addFlora");
+  data.push({
+    flora: flora,
+  });
+  localStorage.setItem("savedData", JSON.stringify(data));
 
   // Append the element to the body
   output.appendChild(divElement);
   // output.textContent += flora;
+  return data;
 }
 function addNote() {
   const note = grabNotes.value;
@@ -120,10 +132,17 @@ function addFile() {
 }
 //on submit/click
 grabSubmit.addEventListener("click", function () {
-  console.log("test");
   addFile();
   addFlora();
   addLocation();
   addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
+window.onload = function () {
+  for (let index = 0; index < data.length; index++) {
+    const divElement = document.createElement("div");
+    divElement.className = "myDiv";
+    divElement.innerHTML = savedData.flora;
+  }
+  console.log("Window loaded!");
+};
