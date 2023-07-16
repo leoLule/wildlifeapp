@@ -37,6 +37,13 @@ function getLocationName(latitude, longitude) {
 
 getLocation();
 
+let data = [];
+
+let savedData = localStorage.getItem("savedData");
+if (savedData !== null) {
+  data = JSON.parse(savedData);
+};
+
 const galleryContainer = document.getElementById("gallery");
 const images = galleryContainer.getElementsByTagName("img");
 
@@ -77,27 +84,19 @@ const outputLocation = document.getElementById("output-location");
 const outputNote = document.getElementById("output-note");
 
 function addFlora() {
-  let data = localStorage.getItem("savedData");
-  if (data === null) {
-    data = [];
-  } else {
-    data = JSON.parse(data);
-  }
-
   const flora = grabFlora.value;
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = flora;
-  console.log("addFlora");
-  data.push({
-    flora: flora,
-  });
+  data.push(
+    {
+      flora: flora,
+    });
   localStorage.setItem("savedData", JSON.stringify(data));
 
   // Append the element to the body
   output.appendChild(divElement);
   // output.textContent += flora;
-  return data;
 }
 function addNote() {
   const note = grabNotes.value;
@@ -138,11 +137,16 @@ grabSubmit.addEventListener("click", function () {
   addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
-window.onload = function () {
-  for (let index = 0; index < data.length; index++) {
+function displayDataFromLocalStorage() {
+  for (let i = 0; i < data.length; i++) {
     const divElement = document.createElement("div");
     divElement.className = "myDiv";
-    divElement.innerHTML = savedData.flora;
+    divElement.innerText = data[i].flora;
+    output.appendChild(divElement);
+
   }
-  console.log("Window loaded!");
 };
+
+window.addEventListener("DOMContentLoaded", function () {
+  displayDataFromLocalStorage();
+});
