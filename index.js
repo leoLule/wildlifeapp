@@ -42,7 +42,7 @@ let data = [];
 let savedData = localStorage.getItem("savedData");
 if (savedData !== null) {
   data = JSON.parse(savedData);
-};
+}
 
 const galleryContainer = document.getElementById("gallery");
 const images = galleryContainer.getElementsByTagName("img");
@@ -88,21 +88,22 @@ function addFlora() {
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = flora;
-  data.push(
-    {
-      flora: flora,
-    });
+  data.push({
+    flora: flora,
+  });
   localStorage.setItem("savedData", JSON.stringify(data));
 
-  // Append the element to the body
   output.appendChild(divElement);
-  // output.textContent += flora;
 }
 function addNote() {
   const note = grabNotes.value;
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = note;
+  data.push({
+    note: note,
+  });
+  localStorage.setItem("savedData", JSON.stringify(data));
   outputNote.appendChild(divElement);
 }
 function addLocation() {
@@ -137,16 +138,27 @@ grabSubmit.addEventListener("click", function () {
   addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
+
+//LOCAL STORAGE FOR FLORA!!!!
 function displayDataFromLocalStorage() {
   for (let i = 0; i < data.length; i++) {
     const divElement = document.createElement("div");
     divElement.className = "myDiv";
     divElement.innerText = data[i].flora;
     output.appendChild(divElement);
-
   }
-};
+}
+//LOCAL STORAGE FOR NOTES!!!!
+function displayNotesFromStorage() {
+  for (let i = 0; i < data.length; i++) {
+    const divElement = document.createElement("div");
+    divElement.className = "myDiv";
+    divElement.innerText = data[i].note;
+    outputNote.appendChild(divElement);
+  }
+}
 
 window.addEventListener("DOMContentLoaded", function () {
   displayDataFromLocalStorage();
+  displayNotesFromStorage();
 });
