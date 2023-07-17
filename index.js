@@ -138,6 +138,8 @@ grabSubmit.addEventListener("click", function () {
   addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
+
+//LOCAL STORAGE FOR FLORA!!!!
 function displayDataFromLocalStorage() {
   for (let i = 0; i < data.length; i++) {
     const divElement = document.createElement("div");
@@ -146,12 +148,13 @@ function displayDataFromLocalStorage() {
     output.appendChild(divElement);
   }
 }
+//LOCAL STORAGE FOR NOTES!!!!
 function displayNotesFromStorage() {
   for (let i = 0; i < data.length; i++) {
     const divElement = document.createElement("div");
     divElement.className = "myDiv";
     divElement.innerText = data[i].note;
-    output.appendChild(divElement);
+    outputNote.appendChild(divElement);
   }
 }
 
