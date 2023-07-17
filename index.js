@@ -36,13 +36,10 @@ function getLocationName(latitude, longitude) {
 }
 
 getLocation();
+//
 
-let data = [];
 
-let savedData = localStorage.getItem("savedData");
-if (savedData !== null) {
-  data = JSON.parse(savedData);
-};
+
 
 const galleryContainer = document.getElementById("gallery");
 const images = galleryContainer.getElementsByTagName("img");
@@ -88,21 +85,22 @@ function addFlora() {
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = flora;
-  data.push(
-    {
-      flora: flora,
-    });
-  localStorage.setItem("savedData", JSON.stringify(data));
+  floraData.push({
+    flora: flora,
+  });
+  localStorage.setItem("savedFloraData", JSON.stringify(floraData));
 
-  // Append the element to the body
   output.appendChild(divElement);
-  // output.textContent += flora;
 }
 function addNote() {
   const note = grabNotes.value;
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = note;
+  noteData.push({
+    note: note,
+  });
+  localStorage.setItem("savedNoteData", JSON.stringify(noteData));
   outputNote.appendChild(divElement);
 }
 function addLocation() {
@@ -137,16 +135,46 @@ grabSubmit.addEventListener("click", function () {
   addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
-function displayDataFromLocalStorage() {
-  for (let i = 0; i < data.length; i++) {
-    const divElement = document.createElement("div");
-    divElement.className = "myDiv";
-    divElement.innerText = data[i].flora;
-    output.appendChild(divElement);
 
+//set & get LOCAL STORAGE FOR FLORA!!!!
+let floraData = [];
+
+let savedFloraData = localStorage.getItem("savedFloraData");
+if (savedFloraData !== null) {
+  floraData = JSON.parse(savedFloraData);
+}
+
+
+function displayFloraFromStorage() {
+  for (let i = 0; i < floraData.length; i++) {
+    let divElement = document.createElement("div");
+    divElement.className = "myDiv";
+    divElement.innerText = floraData[i].flora;
+    output.appendChild(divElement);
   }
+}
+
+
+//set & get LOCAL STORAGE FOR NOTES!!!!
+
+let noteData = [];
+
+let savedNoteData = localStorage.getItem("savedNoteData");
+if (savedNoteData !== null) {
+  noteData = JSON.parse(savedNoteData);
 };
 
+function displayNotesFromStorage() {
+  for (let i = 0; i < noteData.length; i++) {
+    let divElement = document.createElement("div");
+    divElement.className = "myDiv";
+    divElement.innerText = noteData[i].note;
+    outputNote.appendChild(divElement);
+
+  }
+}
+
 window.addEventListener("DOMContentLoaded", function () {
-  displayDataFromLocalStorage();
+  displayFloraFromStorage();
+  displayNotesFromStorage();
 });

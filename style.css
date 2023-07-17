@@ -139,7 +139,9 @@ button {
   display: flex;
   flex-direction: row;
 }
+
 .myDiv {
+  display: flex;
   width: 200px;
   height: auto;
   margin: 10px;
