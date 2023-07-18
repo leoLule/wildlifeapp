@@ -20,7 +20,7 @@ function getLocation() {
   );
 }
 
-const apiKey = "";
+const apiKey = "AIzaSyBl-lr2Ba9AGX5fBY3eXCTfHg3H8uwNds4";
 function getLocationName(latitude, longitude) {
   let apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
   fetch(apiUrl)
@@ -36,10 +36,6 @@ function getLocationName(latitude, longitude) {
 }
 
 getLocation();
-//
-
-
-
 
 const galleryContainer = document.getElementById("gallery");
 const images = galleryContainer.getElementsByTagName("img");
@@ -89,7 +85,6 @@ function addFlora() {
     flora: flora,
   });
   localStorage.setItem("savedFloraData", JSON.stringify(floraData));
-
   output.appendChild(divElement);
 }
 function addNote() {
@@ -108,6 +103,10 @@ function addLocation() {
   const divElement = document.createElement("div");
   divElement.className = "myDiv";
   divElement.innerHTML = location;
+  locationData.push({
+    location: location,
+  })
+  localStorage.setItem("savedLocationData", JSON.stringify(locationData));
   outputLocation.appendChild(divElement);
 }
 function addFile() {
@@ -136,15 +135,12 @@ grabSubmit.addEventListener("click", function () {
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
 
-//set & get LOCAL STORAGE FOR FLORA!!!!
+//set & get local storage for flora 
 let floraData = [];
-
 let savedFloraData = localStorage.getItem("savedFloraData");
 if (savedFloraData !== null) {
   floraData = JSON.parse(savedFloraData);
 }
-
-
 function displayFloraFromStorage() {
   for (let i = 0; i < floraData.length; i++) {
     let divElement = document.createElement("div");
@@ -155,26 +151,37 @@ function displayFloraFromStorage() {
 }
 
 
-//set & get LOCAL STORAGE FOR NOTES!!!!
-
+//set & get local storage for notes
 let noteData = [];
-
 let savedNoteData = localStorage.getItem("savedNoteData");
 if (savedNoteData !== null) {
   noteData = JSON.parse(savedNoteData);
 };
-
 function displayNotesFromStorage() {
   for (let i = 0; i < noteData.length; i++) {
     let divElement = document.createElement("div");
     divElement.className = "myDiv";
     divElement.innerText = noteData[i].note;
     outputNote.appendChild(divElement);
-
+  }
+}
+//set & get local storage for location 
+let locationData = [];
+let savedLocationData = localStorage.getItem("savedLocationData");
+if (savedLocationData !== null) {
+  locationData = JSON.parse(savedLocationData);
+};
+function displayLocationFromStorage() {
+  for (let i = 0; i < locationData.length; i++) {
+    let divElement = document.createElement("div");
+    divElement.className = "myDiv";
+    divElement.innerText = locationData[i].location;
+    outputNote.appendChild(divElement);
   }
 }
 
 window.addEventListener("DOMContentLoaded", function () {
   displayFloraFromStorage();
   displayNotesFromStorage();
+  displayLocationFromStorage()
 });
