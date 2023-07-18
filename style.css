@@ -121,7 +121,6 @@ button {
 }
 
 .output-container {
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -129,13 +128,12 @@ button {
   align-items: center;
 }
 
-
-
 #output-flora,
 #output-location,
 #output-note {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .myDiv {
