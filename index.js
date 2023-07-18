@@ -105,7 +105,7 @@ function addLocation() {
   divElement.innerHTML = location;
   locationData.push({
     location: location,
-  })
+  });
   localStorage.setItem("savedLocationData", JSON.stringify(locationData));
   outputLocation.appendChild(divElement);
 }
@@ -128,14 +128,14 @@ function addFile() {
 }
 //on submit/click
 grabSubmit.addEventListener("click", function () {
-  addFile();
   addFlora();
+  addFile();
   addLocation();
   addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
 
-//set & get local storage for flora 
+//set & get local storage for flora
 let floraData = [];
 let savedFloraData = localStorage.getItem("savedFloraData");
 if (savedFloraData !== null) {
@@ -150,13 +150,12 @@ function displayFloraFromStorage() {
   }
 }
 
-
 //set & get local storage for notes
 let noteData = [];
 let savedNoteData = localStorage.getItem("savedNoteData");
 if (savedNoteData !== null) {
   noteData = JSON.parse(savedNoteData);
-};
+}
 function displayNotesFromStorage() {
   for (let i = 0; i < noteData.length; i++) {
     let divElement = document.createElement("div");
@@ -165,12 +164,12 @@ function displayNotesFromStorage() {
     outputNote.appendChild(divElement);
   }
 }
-//set & get local storage for location 
+//set & get local storage for location
 let locationData = [];
 let savedLocationData = localStorage.getItem("savedLocationData");
 if (savedLocationData !== null) {
   locationData = JSON.parse(savedLocationData);
-};
+}
 function displayLocationFromStorage() {
   for (let i = 0; i < locationData.length; i++) {
     let divElement = document.createElement("div");
@@ -183,5 +182,5 @@ function displayLocationFromStorage() {
 window.addEventListener("DOMContentLoaded", function () {
   displayFloraFromStorage();
   displayNotesFromStorage();
-  displayLocationFromStorage()
+  displayLocationFromStorage();
 });
