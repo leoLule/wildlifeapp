@@ -122,18 +122,17 @@ button {
 }
 
 .output-container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
 }
 
-#output,
+
+
+#output-flora,
 #output-location,
 #output-note {
   display: flex;

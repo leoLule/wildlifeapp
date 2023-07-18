@@ -72,7 +72,7 @@ const grabSubmit = document.querySelector("#submit-btn");
 const grabFlora = document.querySelector("#flora-input");
 const grabLocation = document.querySelector("#locationInput");
 const grabNotes = document.querySelector("#comment");
-const output = document.getElementById("output");
+const outputFlora = document.getElementById("output-flora");
 const outputLocation = document.getElementById("output-location");
 const outputNote = document.getElementById("output-note");
 
@@ -85,7 +85,7 @@ function addFlora() {
     flora: flora,
   });
   localStorage.setItem("savedFloraData", JSON.stringify(floraData));
-  output.appendChild(divElement);
+  outputFlora.appendChild(divElement);
 }
 function addNote() {
   const note = grabNotes.value;
@@ -146,7 +146,7 @@ function displayFloraFromStorage() {
     let divElement = document.createElement("div");
     divElement.className = "myDiv";
     divElement.innerText = floraData[i].flora;
-    output.appendChild(divElement);
+    outputFlora.appendChild(divElement);
   }
 }
 
@@ -176,7 +176,7 @@ function displayLocationFromStorage() {
     let divElement = document.createElement("div");
     divElement.className = "myDiv";
     divElement.innerText = locationData[i].location;
-    outputNote.appendChild(divElement);
+    outputLocation.appendChild(divElement);
   }
 }
 
