@@ -135,7 +135,6 @@ function addImage() {
 grabSubmit.addEventListener("click", function () {
   addImage();
   addFlora();
-  addFile();
   addLocation();
   addNote();
   // gallery.innerHTML = ""; if we want to empty the existing gallery
