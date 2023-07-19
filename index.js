@@ -75,6 +75,8 @@ const grabNotes = document.querySelector("#comment");
 const outputFlora = document.getElementById("output-flora");
 const outputLocation = document.getElementById("output-location");
 const outputNote = document.getElementById("output-note");
+const picButton = document.querySelector("#picButton");
+const gallery = document.querySelector("#gallery");
 
 function addFlora() {
   const flora = grabFlora.value;
@@ -109,25 +111,29 @@ function addLocation() {
   localStorage.setItem("savedLocationData", JSON.stringify(locationData));
   outputLocation.appendChild(divElement);
 }
-function addFile() {
-  // Get the selected files
-  const selectedFiles = picButton.files;
 
-  // Iterate over each selected file
-  for (let i = 0; i < selectedFiles.length; i++) {
-    const file = selectedFiles[i];
 
-    // Create an image element
+function addImage() {
+  const slectedImages = picButton.files;
+
+  for (let i = 0; i < slectedImages.length; i++) {
+    const image = slectedImages[i];
     const img = document.createElement("img");
-    img.src = URL.createObjectURL(file);
-    img.alt = file.name;
-
-    // Append the image element to the gallery container
+    img.src = URL.createObjectURL(image);
+    img.alt = image.name;
     gallery.appendChild(img);
+
+    // Store the image URL in an array
+    imageURLs.push(img.src);
   }
+
+  // Save the image URLs to local storage
+  localStorage.setItem("savedImageURLs", JSON.stringify(imageURLs));
 }
+
 //on submit/click
 grabSubmit.addEventListener("click", function () {
+  addImage();
   addFlora();
   addFile();
   addLocation();
@@ -178,9 +184,27 @@ function displayLocationFromStorage() {
     outputLocation.appendChild(divElement);
   }
 }
+let imageURLs = [];
 
+function displayImageFromStorage() {
+  // Retrieve the stored image URLs from local storage
+  const savedImageURLs = localStorage.getItem("savedImageURLs");
+
+  if (savedImageURLs !== null) {
+    const imageURLs = JSON.parse(savedImageURLs);
+
+    // Display the stored images in the gallery
+    for (let i = 0; i < imageURLs.length; i++) {
+      const img = document.createElement("img");
+      img.src = imageURLs[i];
+      img.alt = "Image " + (i + 1);
+      gallery.appendChild(img);
+    }
+  }
+}
 window.addEventListener("DOMContentLoaded", function () {
   displayFloraFromStorage();
   displayNotesFromStorage();
   displayLocationFromStorage();
+  displayImageFromStorage();
 });
