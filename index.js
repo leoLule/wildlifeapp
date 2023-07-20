@@ -1,8 +1,3 @@
-//TODO: when click on button add picture add picture to gallery
-//- save in local storages, how to remove/edit pic?
-//- add description of observations:what shall it contain ?
-//- maybe as a card design with a small pic on top and a short description below and if i click on the description you can edit the card
-
 // Get references to the gallery container and images
 function getLocation() {
   let locationInput = document.getElementById("locationInput");
@@ -47,27 +42,27 @@ for (let i = 0; i < images.length; i++) {
   });
 }
 
-// Function to display clicked image in a larger view
-function displayImage(index) {
-  // Create a modal or lightbox to display the image in a larger view
-  // Example: Create a modal div and append the clicked image to it
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
+// // Function to display clicked image in a larger view
+// function displayImage(index) {
+//   // Create a modal or lightbox to display the image in a larger view
+//   // Example: Create a modal div and append the clicked image to it
+//   const modal = document.createElement("div");
+//   modal.classList.add("modal");
 
-  const image = document.createElement("img");
-  image.src = images[index].src;
-  image.alt = images[index].alt;
+//   const image = document.createElement("img");
+//   image.src = images[index].src;
+//   image.alt = images[index].alt;
 
-  modal.appendChild(image);
-  document.body.appendChild(modal);
+//   modal.appendChild(image);
+//   document.body.appendChild(modal);
 
-  // Add event listener to close the modal when clicked
-  modal.addEventListener("click", function () {
-    modal.remove();
-  });
-}
+//   // Add event listener to close the modal when clicked
+//   modal.addEventListener("click", function () {
+//     modal.remove();
+//   });
+// }
 
-//select html divs/inputs
+//select html div's/inputs
 const grabSubmit = document.querySelector("#submit-btn");
 const grabFlora = document.querySelector("#flora-input");
 const grabLocation = document.querySelector("#locationInput");
@@ -112,12 +107,11 @@ function addLocation() {
   outputLocation.appendChild(divElement);
 }
 
-
 function addImage() {
-  const slectedImages = picButton.files;
+  const selectedImages = picButton.files;
 
-  for (let i = 0; i < slectedImages.length; i++) {
-    const image = slectedImages[i];
+  for (let i = 0; i < selectedImages.length; i++) {
+    const image = selectedImages[i];
     const img = document.createElement("img");
     img.src = URL.createObjectURL(image);
     img.alt = image.name;

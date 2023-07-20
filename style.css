@@ -2,15 +2,15 @@
   padding: 0;
   margin: 0;
   font-size: 18px;
-  font-family: "Shadows Into Light", cursive;
+  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
 
 html,
 body {
   height: 100%;
-  background-color: green;
-  color: white;
+  background-color: #f2f2f2;
+  color: black;
 }
 
 .main-wrapper {
@@ -24,7 +24,8 @@ h1,
 h2 {
   font-size: 50px;
   text-align: center;
-  color: rgb(118, 249, 118);
+  color: black;
+  margin-top: 1.5rem;
 }
 
 .slot {
@@ -47,27 +48,36 @@ h2 {
 
 input {
   flex: 0.4;
+  border-color: rgb(255, 255, 255);
+  border-style: none;
+  /* width: 50%; */
 }
 
 button {
   border-radius: 10px;
   padding: 10px;
+  background-color: rgb(89, 89, 231);
 }
 
 #picButton {
   width: 100px;
-  margin-left: 10px;
+  /* color: #fff;
+  background-color: #0d6efd; */
+  /* margin-left: 10px; */
 }
 
 .commentbox {
   display: flex;
   flex: 0.4;
+  border-color: rgb(255, 255, 255);
+  border-style: none;
 }
 
-#submit {
+/* #submit {
   margin: 0 150px;
   width: 150px;
-}
+  background-color: blue;
+} */
 
 #gallery {
   display: flex;
