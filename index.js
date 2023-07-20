@@ -83,6 +83,7 @@ function addFlora() {
   const location = grabLocation.value;
   const note = grabNotes.value;
   const selectedImages = picButton.files;
+  console.log(selectedImages);
 
   // const divElement = document.createElement("div");
   // divElement.className = "myDiv";
@@ -92,35 +93,56 @@ function addFlora() {
   //   note: grabNotes.value,
   //   image: URL.createObjectURL(image),
   // };
-  for (let i = 0; i < selectedImages.length; i++) {
-    const image = selectedImages[i];
-    const img = document.createElement("img");
-    img.src = URL.createObjectURL(image);
-    img.alt = image.name;
-    gallery.appendChild(img);
+  // for (let i = 0; i < selectedImages.length; i++) {
+  //   const image = selectedImages[i];
+  //   const img = document.createElement("img");
+  //   img.src = URL.createObjectURL(image);
+  //   img.alt = image.name;
+  //   img.append(img);
 
-    // Store the image URL in an array
-    imageURLs.push(img.src);
+  //   // Store the image URL in an array
+  //   imageURLs.push(img.src);
+  // }
+  let file = selectedImages["0"];
+  let card;
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      card = `<div class="card" style="width: 18rem;">
+        <img src="${e.target.result}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${flora}</h5>
+       <h6 class="card-subtitle mb-2 text-body-secondary">${location}</h6>
+      <p class="card-text">${note}</p>
+     
+    </div>
+  </div>`;
+      // imagePreview.src = e.target.result;
+      console.log(card);
+    };
+    reader.readAsDataURL(file);
   }
 
-  const card = `<div class="card" style="width: 18rem;">
-      <img src="${image}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${flora}</h5>
-     <h6 class="card-subtitle mb-2 text-body-secondary">${location}</h6>
-    <p class="card-text">${note}</p>
-   
-  </div>
-</div>`;
+  // const card = `<div class="card" style="width: 18rem;">
+  //       <img src="file:///Users/lukaslehrmann/Desktop/wildlife%20pics/${selectedImages["0"].name}" class="card-img-top" alt="...">
+  //   <div class="card-body">
+  //     <h5 class="card-title">${flora}</h5>
+  //      <h6 class="card-subtitle mb-2 text-body-secondary">${location}</h6>
+  //     <p class="card-text">${note}</p>
+
+  //   </div>
+  // </div>`;
   gallery.innerHTML += card;
   floraData.push({
     flora: flora,
     location: location,
     note: note,
-    image: URL.createObjectURL(image),
+    // image: URL.createObjectURL(image),
   });
   localStorage.setItem("savedFloraData", JSON.stringify(floraData));
-  outputFlora.appendChild(divElement);
+  // outputFlora.appendChild(divElement);
 }
 function addNote() {
   const note = grabNotes.value;
