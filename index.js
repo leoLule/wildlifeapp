@@ -80,21 +80,44 @@ const gallery = document.querySelector("#gallery");
 
 function addFlora() {
   const flora = grabFlora.value;
+  const location = grabLocation.value;
+  const note = grabNotes.value;
+  const selectedImages = picButton.files;
 
   // const divElement = document.createElement("div");
   // divElement.className = "myDiv";
   // divElement.innerHTML = flora;
+  // const info = {
+  //   flora: grabFlora.value,
+  //   note: grabNotes.value,
+  //   image: URL.createObjectURL(image),
+  // };
+  for (let i = 0; i < selectedImages.length; i++) {
+    const image = selectedImages[i];
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(image);
+    img.alt = image.name;
+    gallery.appendChild(img);
+
+    // Store the image URL in an array
+    imageURLs.push(img.src);
+  }
+
   const card = `<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+      <img src="${image}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">${flora}</h5>
+     <h6 class="card-subtitle mb-2 text-body-secondary">${location}</h6>
+    <p class="card-text">${note}</p>
+   
   </div>
 </div>`;
   gallery.innerHTML += card;
   floraData.push({
     flora: flora,
+    location: location,
+    note: note,
+    image: URL.createObjectURL(image),
   });
   localStorage.setItem("savedFloraData", JSON.stringify(floraData));
   outputFlora.appendChild(divElement);
@@ -122,12 +145,11 @@ function addLocation() {
   outputLocation.appendChild(divElement);
 }
 
-
 function addImage() {
-  const slectedImages = picButton.files;
+  const selectedImages = picButton.files;
 
-  for (let i = 0; i < slectedImages.length; i++) {
-    const image = slectedImages[i];
+  for (let i = 0; i < selectedImages.length; i++) {
+    const image = selectedImages[i];
     const img = document.createElement("img");
     img.src = URL.createObjectURL(image);
     img.alt = image.name;
