@@ -32,13 +32,6 @@ h2 {
   padding: 5px;
   flex: 1;
   justify-content: center;
-  align-items: flex-start;
-}
-
-.slot-with-button {
-  display: flex;
-  justify-content: center;
-  margin-left: 50px;
 }
 
 .title {
@@ -46,6 +39,7 @@ h2 {
 }
 
 input {
+  display: flex;
   flex: 0.4;
 }
 
@@ -54,25 +48,21 @@ button {
   padding: 10px;
 }
 
-#picButton {
-  width: 100px;
-  margin-left: 10px;
-}
+
 
 .commentbox {
   display: flex;
   flex: 0.4;
 }
 
-#submit {
-  margin: 0 150px;
-  width: 150px;
-}
+
 
 .gallery-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+
 }
 
 #gallery {
@@ -93,9 +83,12 @@ img {
 
 .outputDiv {
   display: flex;
-  height: auto;
-  width: auto;
+  height: 50px;
+  width: 300px;
   margin: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .imgDivElement {
@@ -109,29 +102,32 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 200px;
+  border: solid rgb(49, 9, 9);
+  margin: 10px;
+  border-radius: 10px;
 }
 
-/* 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+@media(max-width: 960px) {
+  .slot {
+    justify-content: flex-start;
+  }
+
+  input,
+  .commentbox {
+    width: auto;
+    flex: auto;
+  }
+
+  .title {
+    width: 100px;
+  }
+
+  #picButton {
+    margin-left: 30px
+  }
+
+
+
+
 }
-
-#gallery img:hover {
-  transform: scale(1.1);
-}
-
-
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 5px;
-} */

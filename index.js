@@ -4,7 +4,6 @@ function getLocation() {
     function (position) {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
-
       locationInput.value = latitude + ", " + longitude;
       getLocationName(latitude, longitude);
     },
@@ -48,11 +47,19 @@ function divCreation() {
   return divElement;
 };
 function imgDivCreation() {
-  const divElement = document.createElement("div");
-  divElement.className = "imgDiv";
-  return divElement;
+  const imgDivElement = document.createElement("div");
+  imgDivElement.className = "imgDiv";
+  return imgDivElement;
 };
 const images = gallery.getElementsByTagName("img");
+let floraData = [];
+let savedFloraData = localStorage.getItem("savedFloraData");
+let noteData = [];
+let savedNoteData = localStorage.getItem("savedNoteData");
+let locationData = [];
+let savedLocationData = localStorage.getItem("savedLocationData");
+let imageURLs = [];
+let savedImageURLs = localStorage.getItem("savedImageURLs");
 
 function addFlora(parentElement) {
   const flora = grabFlora.value;
@@ -67,7 +74,6 @@ function addFlora(parentElement) {
 function addNote(parentElement) {
   const note = grabNotes.value;
   const divElement = divCreation();
-
   divElement.innerHTML = note;
   noteData.push({
     note: note,
@@ -109,19 +115,6 @@ grabSubmit.addEventListener("click", function () {
   addNote(experienceDiv);
   // gallery.innerHTML = ""; if we want to empty the existing gallery
 });
-
-let floraData = [];
-let savedFloraData = localStorage.getItem("savedFloraData");
-
-
-let noteData = [];
-let savedNoteData = localStorage.getItem("savedNoteData");
-
-let locationData = [];
-let savedLocationData = localStorage.getItem("savedLocationData");
-
-let imageURLs = [];
-let savedImageURLs = localStorage.getItem("savedImageURLs");
 function displayFromStorage() {
   if (savedFloraData !== null) {
     floraData = JSON.parse(savedFloraData);
@@ -159,7 +152,6 @@ function displayFromStorage() {
     noteElement.innerText = noteData[i].note;
     experienceDiv.appendChild(noteElement);
   }
-
 };
 window.addEventListener("DOMContentLoaded", function () {
   displayFromStorage()
