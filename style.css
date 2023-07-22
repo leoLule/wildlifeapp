@@ -48,14 +48,10 @@ button {
   padding: 10px;
 }
 
-
-
 .commentbox {
   display: flex;
   flex: 0.4;
 }
-
-
 
 .gallery-wrapper {
   display: flex;
@@ -126,8 +122,4 @@ img {
   #picButton {
     margin-left: 30px
   }
-
-
-
-
 }
