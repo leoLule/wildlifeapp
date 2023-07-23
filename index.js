@@ -33,7 +33,6 @@ const grabFlora = document.querySelector("#flora-input");
 const grabLocation = document.querySelector("#locationInput");
 const grabNotes = document.querySelector("#comment");
 const picButton = document.querySelector("#picButton");
-const gallery = document.querySelector("#gallery");
 const galleryWrapper = document.querySelector(".gallery-wrapper");
 function addExperienceDiv() {
   const experienceDiv = document.createElement("div");
@@ -51,6 +50,7 @@ function imgDivCreation() {
   imgDivElement.className = "imgDiv";
   return imgDivElement;
 };
+
 let floraData = [];
 let savedFloraData = localStorage.getItem("savedFloraData");
 let noteData = [];
