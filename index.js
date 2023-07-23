@@ -51,7 +51,6 @@ function imgDivCreation() {
   imgDivElement.className = "imgDiv";
   return imgDivElement;
 };
-const images = gallery.getElementsByTagName("img");
 let floraData = [];
 let savedFloraData = localStorage.getItem("savedFloraData");
 let noteData = [];
